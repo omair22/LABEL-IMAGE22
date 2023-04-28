@@ -94,7 +94,7 @@ useEffect(() => {
     <h2>{isAdmin ? "Admin" : "User"} Dashboard</h2>
 
     <div className="dashboard">
-      <Carousel showArrows={true} showThumbs={false} autoPlay={true} centerMode={true}>
+      <Carousel infiniteLoop={true} showArrows={true} showThumbs={false} autoPlay={true} centerMode={true}>
         {images.map((image, index) => (
           <div className="carousel-slide" key={index}>
             <img src={image.src} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />

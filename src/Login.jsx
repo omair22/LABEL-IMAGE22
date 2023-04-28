@@ -20,21 +20,21 @@ const Login = () => {
     }
   };
  
- const handleSignOut = () => {
-    // Perform sign out logic here
-    // For example, clear user session, reset state, etc.
-    // Then navigate to the login page
-    navigate(-1);
+  const handleBack = () => {
+    setUserType("");
+    setUsername("");
+    setPassword("");
+    setError("");
   };
 
   return (
     <div className="container">
       {!userType && (
         <div className="user-type">
-          <h1>Select User Type:</h1>
+          <h1>Role Challenge</h1>
+          <h2>Select User Type:</h2>
           <div className="user-type-buttons">
             <button onClick={() => setUserType("user")}>User</button>
-              <br></br>
             <button onClick={() => setUserType("admin")}>Admin</button>
           </div>
         </div>
@@ -59,8 +59,14 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button> 
-
+          <div className="button-group">
+            <button type="submit">Login</button>
+            {userType && (
+              <button className="back-button" onClick={handleBack}>
+                Back
+              </button>
+            )}
+          </div>
         </form>
       )}
     </div>
